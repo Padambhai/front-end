@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h1 style="color:green">CHAT <span style="color:cyan">GPT</span></h1>
+    <p>Machine learning|Deep learning</p>
+  </div>
+<br>
+
+<div class="container my-5">
+  <br>
+  <!-- Nav pills -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#technology">Technology</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#education">Education</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#blogwap">Blogwap</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="technology" class="container tab-pane fade"><br>
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="education" class="container tab-pane fade"><br>
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="blogwap" class="container tab-pane fade"><br>
+      <h3>Post A Blog</h3>
+      <form class="w-75">
+      <div class="mb-4">
+        <input type="text" name="title" class="form-control">
+      </div>
+      <div class="mb-4">
+        <input type="file" name="image" class="form-control" accept="image/*">
+      </div>
+      <div class="mb-4">
+        <textarea class="form-control" name="content" rows="20"></textarea>
+      </div>
+       <div class="mb-4">
+        <button style="color:white;" type="submit" class="btn btn-primary px-4 py-1 rounded-0">submit</button>
+      </div>
+     </form>
+    </div>
+  </div>
+</div>
+<div class="jumbotron text-center">
+    <p>www.wapblog.com</p>
+  </div>
+  <script>
+  $(document).ready(function(){
+    $("form").submit(function(e){
+      e.preventDefault();
+      //alert();
+      $.ajax({
+        type:"POST"
+        url:"http://localhost:8080/blog",
+        data:{
+          name:"thapa",
+          roll:3456
+        },
+        success:fuction(response){
+          console.log(response)
+        }
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>
